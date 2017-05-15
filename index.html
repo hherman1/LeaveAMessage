@@ -1,0 +1,69 @@
+<html>
+    <head>
+<style>
+
+.game {
+    margin-left:auto;
+    margin-right: auto;
+    max-width: 800px;
+    text-align: center;
+}
+.submit {
+    text-align: right;
+}
+#entry {
+    width: 100%;
+    height:100%;
+    max-height: 250px;
+    resize: none;
+}
+#sendMessage {
+    padding: 0.5em 0.75em 0.5em 0.75em;
+}
+#result {
+    text-align: left;
+    display: none;
+}  
+#resultContainer {
+    text-align: left;
+}   
+#loadingBar {
+    display: none;
+}
+
+    </style>
+        </head>
+<body>
+<div class="game">
+            <h1> Leave a message </h1>
+
+    <div id="prompt">
+            
+        <div class="submit" id="submit">
+            <textarea id="entry" type="text" ></textarea> <br/> <br/>
+            <button id="sendMessage"> Send </button>
+        </div>
+    </div>
+        <div id="loadingBar">
+                <progress>1 </progress>
+        </div>
+    <div id="resultContainer">
+    <div id="result">
+    </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://static.hherman.com/js/system.js"></script>
+    <script>
+        // System.transpiler = 'typescript';
+        // System.meta['typescript'] = { format: 'global', exports: 'ts' };
+        // System.paths = {
+        //     '*': '*.ts',
+        //     'typescript': 'node_modules/typescript/lib/typescript.js'
+        // }
+        System.import('build/build.js').then(function(m) {
+            System.load("main");
+        });
+    </script>
+</body>
+</html>
