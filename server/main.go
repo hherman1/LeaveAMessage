@@ -30,7 +30,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	lastMessage.message = bodyStr
 	lastMessage.L.Unlock()
 
-	log.Println("Received Message \"" + bodyStr + "\" from address " + r.RemoteAddr)
+	log.Println("Received Message \"" + bodyStr + "\" from address " + r.Header.Get("X-Real-IP"))
 
 	headers := w.Header()
 	headers.Add("Access-Control-Allow-Origin", "http://static.hherman.com")
