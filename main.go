@@ -42,7 +42,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-var port = os.Getenv("port")
+var port = os.Getenv("PORT")
 
 //go:generate esbuild web/src/main.ts --bundle --outfile=web/out.js
 //go:embed web
@@ -58,7 +58,7 @@ func main() {
 	http.Handle("/", http.FileServer(http.FS(sub)))
 
 	if port == "" {
-		port = "8082"
+		port = "8083"
 	}
 	log.Fatalln(http.ListenAndServe(":"+port, nil))
 }
