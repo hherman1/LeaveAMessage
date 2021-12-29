@@ -23,10 +23,10 @@
 #result {
     text-align: left;
     display: none;
-}  
+}
 #resultContainer {
     text-align: left;
-}   
+}
 #loadingBar {
     display: none;
 }
@@ -38,7 +38,7 @@
             <h1> Leave a message </h1>
 
     <div id="prompt">
-            
+
         <div class="submit" id="submit">
             <textarea id="entry" type="text" ></textarea> <br/> <br/>
             <button id="sendMessage"> Send </button>
@@ -53,17 +53,6 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://static.hherman.com/js/system.js"></script>
-    <script>
-        // System.transpiler = 'typescript';
-        // System.meta['typescript'] = { format: 'global', exports: 'ts' };
-        // System.paths = {
-        //     '*': '*.ts',
-        //     'typescript': 'node_modules/typescript/lib/typescript.js'
-        // }
-        System.import('build/build.js').then(function(m) {
-            System.load("main");
-        });
-    </script>
+    <script type="text/javascript" src="out.js"></script>
 </body>
 </html>

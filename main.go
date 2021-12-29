@@ -1,8 +1,10 @@
 package main
 
 import (
+	"embed"
 	"fmt"
 	"io"
+	"io/fs"
 	"log"
 	"net/http"
 	"os"
@@ -40,7 +42,23 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+var port = os.Getenv("port")
+
+//go:generate esbuild web/src/main.ts --bundle --outfile=web/out.js
+//go:embed web
+var web embed.FS
+
 func main() {
-	http.HandleFunc("/", handler)
-	log.Fatalln(http.ListenAndServe(":"+os.Args[1], nil))
+	http.HandleFunc("/note", handler)
+	sub, err := fs.Sub(web, "web")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	http.Handle("/", http.FileServer(http.FS(sub)))
+
+	if port == "" {
+		port = "8082"
+	}
+	log.Fatalln(http.ListenAndServe(":"+port, nil))
 }

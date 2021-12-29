@@ -8,7 +8,7 @@ export function throwIfNull<T>(element: T | null): T  {
 }
 
 
-export var messageServer = "http://hherman.com/leaveAMessage/server"
+export var messageServer = "note"
 
 export var resultDisplay = <HTMLDivElement>throwIfNull(document.getElementById("result"))
 
